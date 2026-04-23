@@ -1,6 +1,12 @@
 import os
 from collections import defaultdict
 import pandas as pd
+import glob
+import time
+
+#Medicion tiempo para el programa
+inicio = time.time()
+
 
 # Usamos el directorio actual (donde está el script)
 print("Generando archivo... Espere un momento")
@@ -47,3 +53,4 @@ df_duplicados = pd.DataFrame(duplicados, columns=["Numero"])
 df_duplicados.to_excel(salida_excel, index=False)
 
 print(f"✔️ Archivo generado: {salida_excel} con {len(df_duplicados)} duplicados.")
+print("Tiempo total:", round(time.time()-inicio,2), "segundos")
